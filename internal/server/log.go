@@ -17,6 +17,10 @@ type Log struct {
 
 var ErrOffsetNotFound = fmt.Errorf("offset not found")
 
+func NewLog() *Log {
+	return &Log{}
+}
+
 func (c *Log) Append(record Record) (uint64, error) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
